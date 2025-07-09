@@ -3,7 +3,9 @@ import * as github from "@actions/github";
 import Cloudflare from "cloudflare";
 
 try {
-  const client = new Cloudflare();
+  const client = new Cloudflare({
+    apiToken: core.getInput("CLOUDFLARE_API_TOKEN"),
+  });
   const zones = await client.zones.list();
   console.log(zones);
 } catch (error) {

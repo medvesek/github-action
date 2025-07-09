@@ -9,3 +9,5 @@ jobs:
         uses: actions/checkout@v4
       - name: one
         uses: ./
+        with:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
