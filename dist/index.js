@@ -17,7 +17,9 @@ __nccwpck_require__.r(__webpack_exports__);
 
 
 try {
-  const client = new cloudflare__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Ay();
+  const client = new cloudflare__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Ay({
+    apiToken: _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("CLOUDFLARE_API_TOKEN"),
+  });
   const zones = await client.zones.list();
   console.log(zones);
 } catch (error) {

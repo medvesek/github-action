@@ -9,7 +9,6 @@ try {
   const zones = await client.zones.list();
   console.log(zones);
 } catch (error) {
-  console.log(error);
   // Handle errors and indicate failure
   core.setFailed(error.message);
 }
