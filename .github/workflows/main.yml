@@ -8,4 +8,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: one
-        uses: ./dist
+        uses: ./
