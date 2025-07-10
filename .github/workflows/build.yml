@@ -1,0 +1,15 @@
+name: Build
+
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup
+        run: npm install
+      - name: Build
+        run: npx ncc index.js

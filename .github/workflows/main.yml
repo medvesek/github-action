@@ -1,7 +1,6 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
-  push:
   workflow_dispatch:
 jobs:
   Explore-GitHub-Actions:
@@ -13,3 +12,5 @@ jobs:
         uses: ./
         with:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          hostname: "hobi2.ajmuht.eu"
+          targetIp: "91.99.162.137"
