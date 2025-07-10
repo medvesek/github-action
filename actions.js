@@ -8,11 +8,11 @@ export default async function createCloudflareRecord({
 }) {
   const client = new CloudflareClient(new Cloudflare({ apiToken }));
 
-  const zone = client.findZone(hostname);
+  const zone = await client.findZone(hostname);
   if (!zone) {
     throw new Error(`Zone for ${hostname} not found`);
   }
-  const record = client.findRecord(zone.id, hostname);
+  const record = await client.findRecord(zone.id, hostname);
 
   if (!record) {
     await client.createDnsRecord({
@@ -22,13 +22,13 @@ export default async function createCloudflareRecord({
     });
     console.log(`Record for ${hostname} created!`);
   } else if (record.content !== targetIp) {
-    console.log(`Record for ${hostname} updated!`);
     await client.updateDnsRecord({
       recordId: record.id,
       zoneId: zone.id,
       name: hostname,
       content: targetIp,
     });
+    console.log(`Record for ${hostname} updated!`);
   } else {
     console.log(
       `Record for ${hostname} already exists and is configured correctly!`

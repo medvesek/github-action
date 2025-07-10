@@ -31,7 +31,6 @@ export default class CloudflareClient {
   updateDnsRecord({ recordId, zoneId, name, content }) {
     return this.client.dns.records.update(recordId, {
       zone_id: zoneId,
-      dns_record_id: recordId,
       name,
       content,
       type: "A",
