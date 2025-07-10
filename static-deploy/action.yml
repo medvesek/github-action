@@ -1,9 +1,15 @@
-name: "Hello World JS Action"
-description: "Greet someone and record the time"
+name: "Static deploy"
+description: "Static deploy"
 
 inputs:
   CLOUDFLARE_API_TOKEN:
     description: "Cloudflare token"
+    required: true
+  NETLIFY_TOKEN:
+    description: "Netlify token"
+    required: true
+  dir:
+    description: dir
     required: true
   hostname:
     description: hostname
