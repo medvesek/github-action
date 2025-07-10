@@ -12,4 +12,4 @@ jobs:
       - name: Setup
         run: npm install
       - name: Build
-        run: npx ncc index.js
+        run: npx ncc build index.js
